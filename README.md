@@ -1,1 +1,1 @@
-<p align="center"><a href="https://novalastix.com" target="_blank"><img src="https://raw.githubusercontent.com/novalastix/novalastix.com/master/public/images/novalogo_light_t.png" width="400" alt="Novalastix Logo"></a></p>
+<p align="center"><a href="https://novalastix.com" target="_blank"><img src="https://novalastix.com/images/novalogo_light_t.png" width="400" alt="Novalastix Logo"></a></p>
