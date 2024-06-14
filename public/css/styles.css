@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Source+Code+Pro:wght@500&display=swap');
+
+:root {
+  --bg-color: #F2F2F2;
+  --text-color:#1A1A1A;
+  --block-color:#1A1A1A0d;
+  --border-color:#1A1A1A17;
+  --link-color: #1F85EF;
+  --highlight-color: #F3D40AAA;
+  --link-highlight: #1F85EF40;
+}
+
+[data-theme="light"] {
+  --bg-color: #F2F2F2;
+  --text-color:#1A1A1A;
+  --block-color:#1b1f230d;
+  --border-color:#1b1f2317;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1A1A1A;
+  --text-color:#F2F2F2;
+  --block-color:#F2F2F20d;
+  --border-color:#F2F2F217;
+}
+
+body
+{
+  background-color: var(--bg-color);
+  font-family: 'Open Sans', sans-serif;
+  font: 16px;
+  line-height: 1.25;
+  color: var(--text-color);
+  margin: 0;
+}
+
+main
+{
+  max-width: 1024px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+code
+{
+  white-space: pre;
+  line-height: 2;
+  font-size: 85%;
+  font-family: 'Source Code Pro', monospace;
+  padding: 0.2em 0.4em;
+  background-color: var(--block-color);
+  border-radius: 3px;
+}
+
+pre>code
+{
+  line-height: inherit;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+pre
+{
+  padding: 16px;
+  line-height: 1.5;
+  background-color: var(--block-color);
+  border-radius: 3px;
+  overflow: auto;
+}
+
+blockquote
+{
+  margin: 0 0 20px;
+  padding: 2px 16px;
+  line-height: 1.5;
+  border-left: 5px solid var(--border-color);;
+}
+
+img
+{
+  max-width: 100%;
+}
+
+hr
+{
+  border-width: 0;
+  height: 3px;
+  background-color: var(--border-color);
+}
+
+table{
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td, th
+{
+  padding: 8px;
+  line-height: 1.5;
+}
+td
+{
+  border-top: 1px solid var(--border-color);;
+}
+th
+{
+  border-bottom: 2px solid var(--border-color);;
+}
+
+tbody tr:nth-child(odd)
+{
+  background-color: var(--block-color);
+}
+
+abbr[title]
+{
+  cursor: help;
+}
+
+a
+{
+  color: var(--link-color);
+}
+a:hover, a > mark:hover{
+  filter: brightness(90%);
+}
+
+mark
+{
+  white-space: pre;
+  line-height: 2;
+  font-size: 85%;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  background-color: var(--highlight-color);
+}
+
+a:has(mark)
+{
+  text-decoration: none;
+}
+
+a > mark
+{
+  background-color: var(--link-highlight);
+  color: var(--link-color);
+}
+
+details summary
+{
+  cursor: pointer;
+}
+
+.header-icon svg
+{
+  stroke: var(--text-color);
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+}
+
+table.directory
+{
+  white-space: nowrap;
+}
+
+table.directory .icon{
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  table.directory td.hide, table.directory th.hide{
+    display: none;
+  }
+}
+
+.lightswitch
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.lightswitch .icon
+{
+  display: none;
+}
+
+[data-theme="dark"] .lightswitch .icon-sun, [data-theme="light"] .lightswitch .icon-moon
+{
+  display: block;
+}
