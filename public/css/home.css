@@ -1,0 +1,10 @@
+.aeon
+{
+    width: 500px;
+    aspect-ratio: 1/1;
+    max-width: 80%;
+
+    margin: auto;
+    display: block;
+    margin-top: calc(50vh - 250px - 1.5em);
+}
