@@ -1,0 +1,35 @@
+/* Color Variables */
+:root
+{
+    --main-background: #1A1A1A;
+    --main-text: #F2F2F2;
+    --block-bg: #161616;
+    --hover-bg: #F2F2F216;
+    --main-icon: #F2F2F2;
+}
+
+/* Global Styles */
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.hidden
+{
+    display: none !important;
+}
+
+svg
+{
+    color: var(--main-icon);
+}
+
+body
+{
+    background-color: var(--main-background);
+    color: var(--main-text);
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+}
