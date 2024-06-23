@@ -8,23 +8,23 @@
     --main-icon: #F2F2F2;
 }
 
-/* GLobal Presets */
+/* Global Styles */
 *
 {
     margin: 0;
     padding: 0;
 }
+
 .hidden
 {
     display: none !important;
 }
+
 svg
 {
     color: var(--main-icon);
 }
 
-
-/* Body Styles */
 body
 {
     background-color: var(--main-background);
@@ -33,106 +33,3 @@ body
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
 }
-
-/* Navbar Styles */
-nav
-{
-    display: block;
-    width: 100%;
-    background-color: var(--main-background);
-    font-size: 0;
-}
-.nav-right
-{
-    display: block;
-    float: right;
-}
-nav a
-{
-    text-decoration: none;
-    color: var(--main-text);
-    padding: 0.5em 1.5em;
-    height: 2em;
-    display: inline-block;
-    font-size: 16px;
-}
-nav a.nav-btn
-{
-    display: none;
-}
-nav a:hover
-{
-    background-color: var(--hover-bg);
-}
-nav svg
-{
-    width: 100%;
-    height: 100%;
-}
-nav .nav-icon, nav .nav-text
-{
-    line-height: 2em;
-    height: 100%;
-    display: inline-block;
-    vertical-align: middle;
-}
-nav .nav-icon
-{
-    margin-right: 0.5em;
-}
-nav a.nav-text-only .nav-icon, nav a.nav-icon-only .nav-text
-{
-    display: none;
-}
-
-@media screen and (max-width: 800px)
-{
-    .hidden-sm
-    {
-        display: none !important;
-    }
-    nav
-    {
-        position: absolute;
-        top: 0;
-
-        height: 48px;
-        overflow: hidden;
-
-        transition-timing-function: ease-in-out;
-        transition: height 0.5s;
-    }
-    .nav-right
-    {
-        width: 100%;
-    }
-    nav a.nav-btn
-    {
-        display: inline-block;
-    }
-    nav a.nav-link
-    {
-        display: block;
-        float: none;
-    }
-    nav .nav-icon
-    {
-        width: 42px;
-    }
-    nav.expand{
-        height: 100%;
-        transition-timing-function: ease-in-out;
-        transition: height 0.5s;
-        
-
-        background-color: var(--block-bg);
-    }
-    nav a.nav-text-only .nav-icon, nav a.nav-icon-only .nav-text
-    {
-        display: inline-block;
-    }
-}
-
-@media (hover: none) {
-    nav a:hover { background-color: inherit; }
-  }
