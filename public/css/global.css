@@ -1,11 +1,16 @@
 /* Color Variables */
 :root
 {
-    --main-background: #1A1A1A;
+    --body-background: #1A1A1A;
+    --main-background: #2A2A2A;
     --main-text: #F2F2F2;
-    --block-bg: #161616;
+    --border: #1A1A1A;
+    --block-bg: #1f1f1f;
+    --accent-bg: #252525;
     --hover-bg: #F2F2F216;
     --main-icon: #F2F2F2;
+    --highlight-background: #F3D40A;
+    --highlight-text: #1A1A1A;
 }
 
 /* Global Styles */
@@ -25,11 +30,130 @@ svg
     color: var(--main-icon);
 }
 
+/* Main Structure Styles*/
+
 body
 {
-    background-color: var(--main-background);
+    background-color: var(--body-background);
     color: var(--main-text);
 
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
+}
+
+main
+{
+    background-color: var(--main-background);
+    border-radius: 5px;
+    display: block;
+    margin: 32px auto;
+    padding: 16px;
+    max-width: 800px;
+}
+
+/* Text Formatting Styles */
+
+h1,h2,h3,h4,h5,h6
+{
+    margin-bottom: 0.5em;
+}
+
+hr
+{
+    margin: 0.5em;
+    border-width: 0;
+    height: 3px;
+    background-color: var(--border);
+}
+
+mark
+{
+  white-space: pre;
+  line-height: 2;
+  font-size: 0.9em;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  background-color: var(--highlight-background);
+  color: var(--highlight-text);
+  font-weight: 500;
+}
+
+blockquote
+{
+  margin: 1em 0;
+  padding: 0.2em 1em;
+  line-height: 1.5;
+  border-left: 4px solid var(--border);
+}
+
+code
+{
+  white-space: pre;
+  line-height: 2;
+  font-size: 0.85em;
+  font-family: 'Source Code Pro', monospace;
+  padding: 0.2em 0.4em;
+  background-color: var(--block-bg);
+  border-radius: 3px;
+}
+pre>code
+{
+  line-height: inherit;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+pre
+{
+  padding: 0.25em 0.5em;
+  line-height: 1.5;
+  background-color: var(--block-bg);
+  border-radius: 3px;
+  overflow: auto;
+}
+
+ul,ol
+{
+    padding: 0.2em 1em;
+}
+li
+{
+    padding: 0.25em;
+}
+
+/* Table Styles */
+
+table
+{
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    text-align: left;
+}
+caption
+{
+    font-size: 0.8em;
+    font-style: italic;
+}
+th
+{
+    background-color: var(--block-bg);
+}
+td, th
+{
+    padding: 8px;
+    line-height: 1.5;
+}
+td
+{
+    border-top: 1px solid var(--border);
+}
+thead th
+{
+    border-bottom: 2px solid var(--border);;
+}
+
+tbody tr:nth-child(odd)
+{
+    background-color: var(--accent-bg);
 }

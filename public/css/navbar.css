@@ -2,7 +2,7 @@ nav
 {
     display: block;
     width: 100%;
-    background-color: var(--main-background);
+    background-color: var(--body-background);
     font-size: 0;
 }
 
