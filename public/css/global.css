@@ -1,16 +1,20 @@
 /* Color Variables */
 :root
 {
-    --body-background: #1A1A1A;
-    --main-background: #2A2A2A;
+    --body-background: #0D0D0D;
+    --main-background: #1A1A1A;
     --main-text: #F2F2F2;
-    --border: #1A1A1A;
-    --block-bg: #1f1f1f;
-    --accent-bg: #252525;
-    --hover-bg: #F2F2F216;
+    --border: #0D0D0D;
+    --block-background: #0D0D0D;
+    --accent-background: #151515;
     --main-icon: #F2F2F2;
+
     --highlight-background: #F3D40A;
-    --highlight-text: #1A1A1A;
+    --highlight-text: #0D0D0D;
+    
+    --link-internal: #E90C63;
+    --link-external: #1F85EF;
+    --link-error: #D91C0B;
 }
 
 /* Global Styles */
@@ -43,15 +47,29 @@ body
 
 main
 {
-    background-color: var(--main-background);
-    border-radius: 5px;
+    text-align: center;
+    padding: 0 0.5em;
     display: block;
     margin: 2em auto;
-    padding: 0.5em 1em;
     max-width: calc(800px - 2em);
 }
 
+section
+{
+    text-align: left;
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    background-color: var(--main-background);
+}
+
 /* Text Formatting Styles */
+h1{ font-size: 2em;}
+h2{ font-size: 1.75em;}
+h3{ font-size: 1.25em;}
+h4{ font-size: 1em;}
+h5{ font-size: 0.8em;}
+h6{ font-size: 0.6em;}
 
 h1,h2,h3,h4,h5,h6
 {
@@ -60,10 +78,28 @@ h1,h2,h3,h4,h5,h6
 
 hr
 {
-    margin: 0.5em;
+    margin: 1em;
     border-width: 0;
     height: 3px;
     background-color: var(--border);
+}
+
+a
+{
+    color: var(--link-error);
+    text-decoration: none;
+}
+a[href^="/"], a[href^=".."] 
+{
+    color: var(--link-internal);
+}
+a[href^="http://"],a[href^="https://"]
+{
+    color: var(--link-external);
+}
+a:hover
+{
+    filter: brightness(0.9);
 }
 
 mark
@@ -93,7 +129,7 @@ code
   font-size: 0.85em;
   font-family: 'Source Code Pro', monospace;
   padding: 0.2em 0.4em;
-  background-color: var(--block-bg);
+  background-color: var(--block-background);
   border-radius: 3px;
 }
 pre>code
@@ -105,20 +141,21 @@ pre>code
 }
 pre
 {
-  padding: 0.25em 0.5em;
-  line-height: 1.5;
-  background-color: var(--block-bg);
-  border-radius: 3px;
-  overflow: auto;
+    margin: 1em 0;
+    padding: 0.25em 0.5em;
+    line-height: 1.5;
+    background-color: var(--block-background);
+    border-radius: 3px;
+    overflow: auto;
 }
 
 ul,ol
 {
-    padding: 0.2em 1em;
+    padding: 0.2em 1.5em;
 }
 li
 {
-    padding: 0.25em;
+    padding-bottom: 0.25em;
 }
 
 /* Table Styles */
@@ -137,25 +174,17 @@ caption
 }
 th
 {
-    background-color: var(--block-bg);
+    background-color: var(--block-background);
 }
 td, th
 {
     padding: 8px;
     line-height: 1.5;
 }
-td
-{
-    border-top: 1px solid var(--border);
-}
-thead th
-{
-    border-bottom: 2px solid var(--border);;
-}
 
 tbody tr:nth-child(odd)
 {
-    background-color: var(--accent-bg);
+    background-color: var(--accent-background);
 }
 
 /* Mobile Styles */
@@ -163,6 +192,6 @@ tbody tr:nth-child(odd)
 {
     main
     {
-        padding-top: 1.5em;
+        margin-top: 48px;
     }
 }

@@ -15,7 +15,6 @@ nav
 nav a
 {
     text-decoration: none;
-    color: var(--main-text);
     padding: 0.5em 1.5em;
     height: 2em;
     display: inline-block;
@@ -29,7 +28,7 @@ nav a.nav-btn
 
 nav a:hover
 {
-    background-color: var(--hover-bg);
+    background-color: var(--main-background);
 }
 
 nav svg
@@ -40,6 +39,7 @@ nav svg
 
 nav .nav-icon, nav .nav-text
 {
+    color: var(--main-text);
     line-height: 2em;
     height: 100%;
     display: inline-block;
@@ -98,7 +98,6 @@ nav a.nav-text-only .nav-icon, nav a.nav-icon-only .nav-text
         height: 100%;
         transition-timing-function: ease-in-out;
         transition: height 0.5s;
-        background-color: var(--block-bg);
     }
 
     nav a.nav-text-only .nav-icon, nav a.nav-icon-only .nav-text
