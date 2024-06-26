@@ -12,10 +12,6 @@
         <div class="nav-text">Markdown</div>
     </a>
     <a class="nav-link nav-text-only" href="{{ route('blank',[],false) }}">
-        <div class="nav-icon">{!! file_get_contents(public_path('images/icons/id.svg')) !!}</div>
-        <div class="nav-text">Staff</div>
-    </a>
-    <a class="nav-link nav-text-only" href="{{ route('blank',[],false) }}">
         <div class="nav-icon">{!! file_get_contents(public_path('images/icons/error.svg')) !!}</div>
         <div class="nav-text">Market</div>
     </a>
