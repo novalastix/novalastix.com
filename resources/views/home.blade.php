@@ -6,7 +6,5 @@
 @endsection
 
 @section('body')
-    <main>
         <div class="aeon">{!! file_get_contents(public_path('images/aeon.svg')) !!}</div>
-    </main>
 @endsection
