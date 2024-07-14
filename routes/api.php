@@ -17,3 +17,22 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('terminal/handshake', function (Request $request) 
+{
+    return response()->json([
+        'prompt' => "@guest>",
+        'response' => ['AEON COMMAND TERMINAL']
+    ]);
+});
+
+Route::get('terminal/c/{command}', function ($command, Request $request) 
+{
+    if (isset($command))
+    {
+        return response()->json([
+            'prompt' => "@guest>",
+            'response' => ['Command \''.$command.'\' not found.']
+        ]);
+    }
+});
