@@ -20,7 +20,7 @@ async function boot()
 {
     clear();
     const response = await handshake();
-    output(response.response);
+    await output(response.response, 100);
     enableInput(response.prompt);
 }
 
@@ -37,11 +37,13 @@ async function handshake()
     return await response.json();
 }
 
-function output(messages)
+async function output(messages, time)
 {
-    messages.forEach(msg => {
-        outputLine(msg);
-    });
+    for(i=0;i<messages.length;i++)
+    {
+        if(time>0) await delay(time);
+        outputLine(messages[i])
+    }
 }
 
 function outputLine(message)
@@ -51,17 +53,18 @@ function outputLine(message)
     newline.insertAdjacentText("beforeend", message);
     terminal.output.insertAdjacentHTML("beforeend",newline.outerHTML);
     $("#terminal").scrollTop($("#terminal").prop("scrollHeight"));*/
-
+    
     const newline = $("<div>", {"class": "output-line"});
     newline.text(message);
     $(outputID).append(newline);
     $(terminalID).scrollTop($(terminalID).prop("scrollHeight"));
     $("html").scrollTop($("html").prop("scrollHeight"));
+    
 }
 
-function enableInput(prompt)
+async function enableInput(prompt)
 {
-    outputLine("\xa0");
+    await output(["\xa0"],100);
     $(promptID).text(prompt);
     $(inputID).prop('disabled', false);
     $(inputID).focus();
@@ -77,12 +80,12 @@ async function submit()
 {
     const command = $(inputID).val();
     $(inputID).val("");
-    outputLine($(promptID).text() + command);
+    await output([$(promptID).text() + command],0);
     if(command.trim())
     {
         disableInput();
         const response = await send(command.trim());
-        output(response.response);
+        await output(response.response,100);
         enableInput(response.prompt);
     }
 }
@@ -91,6 +94,10 @@ async function send(command)
 {
     const response = await fetch('/api/terminal/c/'+command);
     return await response.json();
+}
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 boot();

@@ -22,7 +22,7 @@ Route::get('terminal/handshake', function (Request $request)
 {
     return response()->json([
         'prompt' => "@guest>",
-        'response' => ['AEON COMMAND TERMINAL']
+        'response' => ['NOVALASTIX Corporation','Terminal Network AEON','Connected via ['.$_SERVER['SERVER_NAME'].']']
     ]);
 });
 
@@ -30,9 +30,27 @@ Route::get('terminal/c/{command}', function ($command, Request $request)
 {
     if (isset($command))
     {
+        $args = explode(" ",$command);
+        if(strtolower($args[0]) == "help")
+        {
+            if (isset($args[1]))
+            {
+                return response()->json([
+                    'prompt' => "@guest>",
+                    'response' => ['There is no documentation for that command.']
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'prompt' => "@guest>",
+                    'response' => ['List of supported Terminal Commands:',"HELP - Displays this list of commands."]
+                ]);
+            }
+        }
         return response()->json([
             'prompt' => "@guest>",
-            'response' => ['Command \''.$command.'\' not found.']
+            'response' => ['\''.$args[0].'\' is not a recognized command.']
         ]);
     }
 });
