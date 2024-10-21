@@ -35,6 +35,12 @@
     padding: 0;
 }
 
+html
+{
+    height: 100%;
+    width: 100%;
+}
+
 .hidden
 {
     display: none !important;
@@ -54,6 +60,8 @@ body
 
     font-family: "Trispace", sans-serif;
     font-size: 16px;
+
+    height: 100%;
 }
 
 main
@@ -61,7 +69,7 @@ main
     text-align: left;
     padding: 0 0.5em;
     display: block;
-    margin: 2em auto;
+    margin: 2em auto 0 auto;
     max-width: calc(800px - 2em);
 
     display: grid;
@@ -88,7 +96,6 @@ section
     padding: 1em;
     border-radius: 0;
     /* border-top: 1px solid  var(--main-text);; */
-    position: relative;
 
     background-image: linear-gradient(to left, transparent 0px, var(--main-text) 0px),
                     linear-gradient(to bottom, transparent 0px, transparent 0px),
@@ -228,6 +235,12 @@ ul,ol
 li
 {
     padding-bottom: 0.25em;
+}
+
+img
+{
+    max-width: 100%;
+    margin: auto;
 }
 
 /* Table Styles */

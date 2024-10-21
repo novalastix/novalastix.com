@@ -26,11 +26,31 @@ Route::get('terminal/handshake', function (Request $request)
     ]);
 });
 
-Route::get('terminal/c/{command}', function ($command, Request $request) 
+Route::get('terminal/c/{command}', function ($query, Request $request) 
 {
-    if (isset($command))
+    if (isset($query))
     {
-        $args = explode(" ",$command);
+        $base64 = str_replace(['-', '_'], ['+', '/'], $query);
+        
+        //Decode command
+        $command = base64_decode($base64);
+
+        //$args = explode(" ",$command);
+        $regex = <<<HERE
+         /  "  ( (?:[^"\\\\]++|\\\\.)*+ ) \"
+         | '  ( (?:[^'\\\\]++|\\\\.)*+ ) \'
+         | \( ( [^)]*                  ) \)
+         | [\s,]+
+         /x
+         HERE;
+
+        $args = preg_split($regex, $command, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+
+        // return response()->json([
+        //     'prompt' => "@guest>",
+        //     'response' => $args
+        // ]);
+
         if(strtolower($args[0]) == "help")
         {
             if (isset($args[1]))
