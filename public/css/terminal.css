@@ -1,0 +1,95 @@
+:root
+{
+    --terminal-main: #D91C0B;
+    --terminal-accent: #D91C0B;
+    --terminal-bg: #1A1A1A50;
+}
+body
+{
+    overflow: hidden;
+}
+main
+{
+    width: calc(100% - 2em);
+    max-width: 1600px;
+    height: calc(100% - 7em);
+
+    display: flex;
+    flex-flow: column;
+    gap: 1em;
+
+    padding: 0;
+    overflow: hidden;
+}
+
+
+.terminal
+{
+    background: none;
+    margin: 0;
+    padding: 0;
+    
+    border: 1px solid var(--terminal-main);
+    /* color: var(--terminal-main); */
+    border-radius: 5px;
+
+    background: var(--terminal-bg) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAG0lEQVQYV2P8//+/FCMj4zMGJMCIzIGxKRQEAJgPBAbJqUVTAAAAAElFTkSuQmCC);
+
+
+    /* font-family: 'Courier Prime', monospace; */
+}
+
+.terminal.title
+{
+    margin-bottom: -1em;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    background-color: var(--terminal-main);
+    padding: 0.2em;
+    color: var(--body-background);
+}
+
+/* OUTPUT */
+
+.terminal.output
+{
+    flex: 1 1 auto;
+    padding: 1em;
+    border-radius: 0 0 5px 5px ;
+    overflow-y: scroll;
+}
+.output-line
+{
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+.terminal.output .terminal-user
+{
+    color: var(--terminal-accent);
+}
+
+
+.terminal.input
+{
+    flex: 0 1 2em;
+}
+.terminal.input form
+{
+    display: flex;
+}
+.terminal.input input
+{
+    padding: 1em;
+    font-family: inherit;
+    font-size: inherit;
+    background-color: inherit;
+    color: var(--terminal-font);
+    caret-color: var(--terminal-font);
+    border: none;
+    flex-grow: 1;
+}
+.terminal.input input:focus
+{
+    outline: none;
+    border: none;
+}

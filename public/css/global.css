@@ -35,6 +35,12 @@
     padding: 0;
 }
 
+html
+{
+    height: 100%;
+    width: 100%;
+}
+
 .hidden
 {
     display: none !important;
@@ -52,17 +58,35 @@ body
     background-color: var(--body-background);
     color: var(--main-text);
 
-    font-family: "Open Sans", sans-serif;
+    font-family: "Trispace", sans-serif;
     font-size: 16px;
+
+    height: 100%;
 }
 
 main
 {
-    text-align: center;
+    text-align: left;
     padding: 0 0.5em;
     display: block;
-    margin: 2em auto;
+    margin: 2em auto 0 auto;
     max-width: calc(800px - 2em);
+
+    display: grid;
+    grid-template-columns: 50%;
+    column-gap: 1em;
+}
+
+header
+{
+    grid-column: span 2;
+    text-align: center;
+    width: 100%;
+}
+
+article
+{
+    grid-column: span 2;
 }
 
 section
@@ -70,9 +94,29 @@ section
     text-align: left;
     margin-bottom: 1em;
     padding: 1em;
-    border-radius: 5px;
-    background-color: var(--main-background);
+    border-radius: 0;
+    /* border-top: 1px solid  var(--main-text);; */
+
+    background-image: linear-gradient(to left, transparent 0px, var(--main-text) 0px),
+                    linear-gradient(to bottom, transparent 0px, transparent 0px),
+                    linear-gradient(to right, transparent 0px, transparent 0px),
+                    linear-gradient(to top, transparent 20%, var(--main-text) 20%);
+    background-position: 100% 0, 100% 0, 0 100%, 0 100%;
+    background-size: 100% 1px, 1px 100%;
+    background-repeat: no-repeat;      
+    /*background-color: var(--main-background);*/
 }
+/*
+section::after
+{
+    border-left: 1px solid  var(--main-text);;
+    content: "";
+    position: absolute;
+    top:0;
+    bottom: 40%;
+    margin-left: -1em;
+}
+    */
 
 /* Text Formatting Styles */
 h1{ font-size: 2em;}
@@ -89,10 +133,8 @@ h1,h2,h3,h4,h5,h6
 
 hr
 {
-    margin: 1em;
-    border-width: 0;
-    height: 4px;
-    background-color: var(--main-text);
+    border: 1px dashed var(--main-text);
+    margin: 0.5em 0;
 }
 
 a
@@ -133,10 +175,10 @@ mark
 
 blockquote
 {
-  margin: 1em 0;
+  margin: 0;
   padding: 0.2em 1em;
   line-height: 1.5;
-  border-left: 4px solid var(--main-text);
+  border-left: 2px dotted var(--main-text);
 }
 
 code
@@ -144,11 +186,20 @@ code
   white-space: pre;
   line-height: 2;
   font-size: 0.85em;
-  font-family: 'Source Code Pro', monospace;
+  font-family: 'Courier Prime', monospace;
   padding: 0.2em 0.4em;
-  background-color: var(--block-background);
-  border: 1px solid var(--border);
   border-radius: 3px;
+  margin: 0 0.2em;
+
+  --corner: 5px;
+  background-image: linear-gradient(to left, var(--main-text) var(--corner), transparent var(--corner), transparent calc(100% - var(--corner)), var(--main-text) calc(100% - var(--corner))),
+        linear-gradient(to bottom, var(--main-text) 100%, transparent 100%), 
+        linear-gradient(to right, var(--main-text) var(--corner), transparent var(--corner), transparent calc(100% - var(--corner)), var(--main-text) calc(100% - var(--corner))),
+        linear-gradient(to top, var(--main-text) 100%, transparent 100%);
+  background-position: 100% 0, 100% 0, 0 100%, 0 100%;
+  background-size: 100% 1px, 1px 100%;
+  background-repeat: no-repeat;    
+
 }
 pre>code
 {
@@ -161,12 +212,20 @@ pre>code
 pre
 {
     margin: 1em 0;
-    padding: 0.25em 0.5em;
+    padding:  0.5em calc(0.5em + 5px);
     line-height: 1.5;
-    background-color: var(--block-background);
-    border: 1px solid var(--border);
     border-radius: 3px;
     overflow: auto;
+
+    --corner: 5px;
+    background-image: linear-gradient(to left, var(--main-text) var(--corner), transparent var(--corner), transparent calc(100% - var(--corner)), var(--main-text) calc(100% - var(--corner))),
+                    linear-gradient(to bottom, var(--main-text) var(--corner), transparent var(--corner)), 
+                    linear-gradient(to right, var(--main-text) var(--corner), transparent var(--corner)),
+                    linear-gradient(to top, var(--main-text) var(--corner), transparent var(--corner), transparent calc(100% - var(--corner)), var(--main-text) calc(100% - var(--corner)));
+    background-position: 100% 0, 100% 0, 0 100%, 0 100%;
+    background-size: 100% 1px, 1px 100%;
+    background-repeat: no-repeat;     
+    
 }
 
 ul,ol
@@ -176,6 +235,12 @@ ul,ol
 li
 {
     padding-bottom: 0.25em;
+}
+
+img
+{
+    max-width: 100%;
+    margin: auto;
 }
 
 /* Table Styles */

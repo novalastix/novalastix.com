@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::get('/terminal', function () {
+    return view('terminal');
+})->name('terminal');
+
 Route::get('/md', function () {
     return view('markdown');
 })->name('markdown');

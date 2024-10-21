@@ -1,14 +1,22 @@
 @extends("base")
 
 @section('head')
-    <title>markdown</title>
+    <title>Terminal</title>
+    <link rel="stylesheet" href="{{ asset('css/terminal.css') }}">
 @endsection
 
 @section('body')
-    <main>
-      <header>
-        <h1>Markdown Formatting</h1>
-      </header>
+<main class="unloaded">
+  
+    <section class="terminal title" id="title">AEON TERMINAL</section>
+    <section class="terminal output" id="terminal-output">
+
+    <!-- <article>
+        <h2>AEON Network Terminal</h2>
+        <section>
+            <img src="{{ asset('images/novalogo_light_t.png') }}" alt="AEON">
+        </section>
+    </article>
 
       <article>
         <h2>Headers</h2>
@@ -44,33 +52,30 @@
               <li>List!</li>
           </ol>
         </section>
-      </article>
-
-
-      <section style="display: none;">
-        <table>
-            <caption>This shows  table formatting!</caption>
-            <thead>
-              <tr>
-                <th>Month</th>
-                <th>Savings</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>January</td>
-                <td>$100</td>
-              </tr>
-              <tr>
-                <td>February</td>
-                <td>$80</td>
-              </tr>
-              <tr>
-                <td>March</td>
-                <td>$90</td>
-              </tr>
-            </tbody>
-          </table> 
-      </section>
-    </main>
+      </article> -->
+      <div class="output-line current"></div>
+    </section>
+    <section class="terminal input">
+        <form id="form">
+            <!-- <label id="prompt">b</label> -->
+            <input type="text" name="input" id="input" autocomplete="off" placeholder="Enter command..."/>
+            <input type="submit" id="submit" style="display:none"/>
+        </form>
+    </section>
+</main>
+<!-- <main>
+    <section class="terminal" id="terminal">
+        <div id="output">a</div>
+        <form id="form">
+            <label id="prompt">b</label>
+            <input type="text" value="c" name="input" id="input" autocomplete="off" autofocus disabled/>
+            <input type="submit" style="display:none"/>
+          </form>
+    </section>
+</main>         -->
 @endsection
+
+@section('foot')
+<script src="{{ asset('js/terminal.js') }}"></script>
+@endsection
+
