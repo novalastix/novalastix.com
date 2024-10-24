@@ -56,20 +56,43 @@ Route::get('terminal/c/{command}', function ($query, Request $request)
             if (isset($args[1]))
             {
                 return response()->json([
-                    'prompt' => "@guest>",
+                    'query' => $args,
                     'response' => ['There is no documentation for that command.']
                 ]);
             }
             else
             {
                 return response()->json([
-                    'prompt' => "@guest>",
-                    'response' => ['List of supported Terminal Commands:',"HELP - Displays this list of commands."]
+                    'query' => $args,
+                    'response' => ['List of supported Terminal Commands:',"CLEAR - Clears the terminal.","HELP - Displays this list of commands."]
                 ]);
             }
         }
+        else if(strtolower($args[0]) == "clear")
+        {
+            return response()->json([
+                'query' => $args,
+                'function' => 'clear'
+            ]);
+        }
+        else if(strtolower($args[0]) == "trm")
+        {
+            if (isset($args[1]))
+            {
+                if(strtolower($args[1]) == "debug")
+                {
+                    return response()->json([
+                        'query' => $args,
+                        'response' => ['Terminal Variable \'DEBUG\' Toggled.'],
+                        'function' => 'debug'
+                    ]);
+                }
+            }
+        }
+
+
         return response()->json([
-            'prompt' => "@guest>",
+            'query' => $args,
             'response' => ['\''.$args[0].'\' is not a recognized command.']
         ]);
     }

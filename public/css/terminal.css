@@ -68,6 +68,11 @@ main
     color: var(--terminal-accent);
 }
 
+.terminal .warn
+{
+    color: #F3D40A;
+}
+
 
 .terminal.input
 {

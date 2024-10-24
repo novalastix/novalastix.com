@@ -1,8 +1,21 @@
-// const terminalID = "#terminal";
-// const inputID = "#input";
-// const promptID = "#prompt";
-// const outputID = "#output";
-// const formID = "#form";
+//Terminal Vars
+var debug = false;
+
+const remoteFunctions = 
+{
+    "clear": function(){
+        clear();
+    },
+    "debug": function(){
+        debug = !debug;
+    }
+}
+
+const flags = 
+{
+    normal: 0,
+    warn: 1
+}
 
 $("#form").on('submit', function (e) {
     e.preventDefault();
@@ -13,7 +26,6 @@ $("#form").on('submit', function (e) {
 function boot()
 {
     clear();
-    //handshake();
     enableInput();
     prompt();
 }
@@ -46,13 +58,10 @@ function submit()
     $("#input").val("");
 
     closePrompt(command)
-    //await output([$(promptID).text() + command],0);
 
     if(command.trim())
     {
         const encodeCommand = btoa(command).replace(/\+/g, '-').replace(/\//g, '_');
-
-        console.log(encodeCommand);
         
         disableInput();
 
@@ -82,9 +91,12 @@ function closePrompt(commmand)
     $("#prompt").removeAttr('id');
 }
 
-function output(message)
+function output(message,flag=0)
 {
-    const prompt = $("<div>", {"class": "output-line"});
+    var messageType = "";
+    if (flag == 1) messageType = " warn";
+
+    const prompt = $("<div>", {"class": "output-line "+messageType});
     prompt.append(message);
     $("#terminal-output").append(prompt);
     $("#terminal-output").scrollTop($("#terminal-output").prop("scrollHeight"));
@@ -93,11 +105,27 @@ function output(message)
 async function send(command){
     const response = await fetch('/api/terminal/c/'+command);
     const message = await response.json();
+
+    if(debug){output(JSON.stringify(message),flags.warn);}
+
     
-    message.response.forEach(msg => {
-        output(msg);
-    });
-    output("\xa0");
+
+    if(message.response)
+    {
+        message.response.forEach(msg => {
+            output(msg);
+        });
+        output("\xa0");
+    }
+
+    if(message.function)
+    {
+        if(remoteFunctions[message.function])
+        {
+            remoteFunctions[message.function]();
+        }
+    }
+    
     prompt();
     enableInput();
 }
