@@ -15,7 +15,7 @@ I am still in the process of building the bones of this website, so all I have t
 # Planned Features
 * **MARKET** - A bunch of Google Charts displaying data from a fictional Stock Market API
 * **ARCHIVE** - A filebrowser for viewing and downloading whatever I feel like hosting
-* **CONSOLE** - An interactive command terminal!
+* **TERMINAL** - An interactive command terminal!
 * **ACCOUNT** - The ability to create and log into user accounts.
 
 # Technical Stack
