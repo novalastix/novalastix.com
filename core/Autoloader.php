@@ -1,8 +1,8 @@
 <?php
 spl_autoload_register(function ($class)
 {
-     $core = ROOT . '\\core\\' . $class . '.php';
-     $controller = ROOT . '\\controllers\\' . $class . '.php';
+     $core = ROOT . '/core/' . $class . '.php';
+     $controller = ROOT . '/controllers/' . $class . '.php';
 
     if (file_exists($core))
     {
