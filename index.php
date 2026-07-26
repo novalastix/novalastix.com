@@ -1,63 +1,23 @@
 <?php
-    $library = "library";
-    $static = "__static__";
-    $title = "Example Markdown Site"; // Default title for the site
 
-    $request = strtok($_SERVER["REQUEST_URI"], '?');
+session_start();
 
-    if ($_SERVER["REQUEST_METHOD"] === "GET")
-    {   
-        $file = str_replace("%20", " ", $library . $request);
-        
-        // FILE PRIORITY (/example)
-        // 1. Markdown (/example.md)
-        // 2. Other Extensions (/example.txt)
-        // 3. Static Files (/example)
-        // 4. Directory Index (/example/index.md)
+//Remove this in production
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-        // Check for Markdown file
-        if (file_exists("$file.md"))
-        {
-            include 'templates/markdown.php';
-            exit();
-        }
+define('ROOT',__DIR__);
 
-        //TODO: Support other file extensions (e.g. .txt, .png, .jpg, etc.)
+require_once ROOT . '/core/Autoloader.php';
 
-        //Serve code related files
-        $codeWhitelist = ['js'];
-        if (file_exists($file) && in_array(pathinfo($file,PATHINFO_EXTENSION), $codeWhitelist) && !is_dir($file))
-        {
-            include 'templates/code.php';
-            exit();
-        }
-    
-        // Serve static files directly
-        $staticBlacklist = ['', 'php', 'htaccess', 'md']; // Never serve these file types directly 
-        if (file_exists($file) && !in_array(pathinfo($file, PATHINFO_EXTENSION), $staticBlacklist) && !is_dir($file))
-        {
-            $mimeType = mime_content_type($file);
-            header("Content-Type: $mimeType");
-            readfile($file);
-            exit();
-        }
+$router = new Router();
 
-        // Check if it's a directory with index.md
-        if (is_dir($file))
-        {
-            if (file_exists("$file/index.md"))
-            {
-                $file = "$file/index";
-                include 'templates/markdown.php';
-                exit();
-            }
-        }
+//EXAMPLE $router->get('/','DefaultController@index');
+$router->get('/','DefaultController');
 
-        //If nothing matched, show 404
-        $file =  "error/404";
-        include 'templates/markdown.php';
-        exit();
-    }
-    
+$method = $_SERVER['REQUEST_METHOD'];
+$uri = $_SERVER['REQUEST_URI'];
+$router->resolve($uri, $method);
+
 ?>
-
