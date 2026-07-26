@@ -1,0 +1,143 @@
+*
+{
+    --color-bg: #F2F2F2;
+    --color-text: #0D0D0D;
+    --color-border: #1A1A1A50;
+    --color-block-bg: #E5E5E5;
+    --color-link: #2462f0;
+    --color-external-link: #2462f0;
+}
+
+body
+{
+    margin: 0;
+    padding: 1em;
+
+    font-family: monospace;
+    font-size: 18px;  
+    line-height: 1.6;
+    font-weight: 400;
+    
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+main
+{
+    max-width: 1024px;
+    margin: 1em auto;
+    padding: 0 1em;
+
+    background-color: var(--color-bg);
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    margin: 0;
+
+    font-weight: 500;
+}
+
+h1 { font-size: 1.5em; }
+h2 { font-size: 1.3em; }
+h3 { font-size: 1.15em; }
+h4 { font-size: 1em; }
+h5 { font-size: 0.9em; }
+h6 { font-size: 0.8em; }
+
+p { margin: 0 0 1em 0; }
+
+hr
+{
+    height: 3px;
+    border: 0;
+    
+    background: var(--color-border);
+}
+
+strong
+{
+    font-weight: 700;
+}
+
+blockquote
+{
+    margin: 1em 0;
+    padding-left: 1em;
+
+    border-left: 3px solid var(--color-border);
+}
+
+code
+{
+    padding: 0.2em 0.4em;
+
+    font-family: "Courier Prime", monospace;
+
+    background-color: var(--color-block-bg);
+    border-radius: 4px;
+}
+
+pre code
+{
+    display: block;
+    padding: 1em;
+
+    overflow-x: auto;
+}
+
+table
+{
+    width: 100%;
+    margin: 1em 0;
+    border-collapse: collapse;
+
+    font-size: 95%;
+    
+    background-color: var(--color-bg);
+}
+
+th, td
+{
+    padding: 0.4em 0.8em;
+
+    border: 1px solid var(--color-border);
+}
+
+th
+{
+    font-weight: bold;
+    text-align: center;
+
+    background-color: var(--color-block-bg);
+}
+
+a
+{
+    color: var(--color-link);
+    text-decoration: none;
+}
+a:hover
+{
+    text-decoration: underline;
+}
+a[href^="http"]
+{
+    color: var(--color-external-link);
+}
+a[href^="http"]::after
+{
+    font-size: 0.75em;
+    margin-left: 0.2em;
+    vertical-align: super;
+    content: "[E]";
+}
+
+@media (max-width: calc(1024px + 4em + 2px))
+{
+    main
+    {
+        margin: none;
+        border: none;
+    }
+}
