@@ -10,13 +10,10 @@
 This repository hosts the production and developmental code for **NOVALASTIX.COM**, a real website for a fictional organization. I created this to practice my front-end and back-end web development skills as well as flesh out my creative ideas for various unrelated world-building projects. **NOVALASTIX.COM** is designed to be a modern, responsive, and user friendly website for me to show off various web projects I'm working on as well as anything else I find interesting.
 
 # Current Features
-I am still in the process of building the bones of this website, so all I have to show for now is a very responsive navigation bar that leads to nowhere and a page that shows off basic formatting!
+I am rebuilding the backend to remove dependencies and practice developing backend PHP. The site may be very broken until I am finished.
 
 # Planned Features
-* **MARKET** - A bunch of Google Charts displaying data from a fictional Stock Market API
-* **ARCHIVE** - A filebrowser for viewing and downloading whatever I feel like hosting
-* **TERMINAL** - An interactive command terminal!
-* **ACCOUNT** - The ability to create and log into user accounts.
+* **MARKET** - A page with various charts displaying data from a fictional Stock Market API
 
 # Technical Stack
 ## Frontend
