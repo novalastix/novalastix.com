@@ -22,7 +22,6 @@ I am rebuilding the backend to remove dependencies and practice developing backe
 * JavaScript
 ## Backend
 * PHP
-* [Laravel](https://laravel.com/)
-* MySQL
+* [matrix](https://github.com/novalastix/matrix)
 ## Hosting
 The production site for **NOVALASTIX.COM** is hosted on [DeamHost](http://dreamhost.com/)
